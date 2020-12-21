@@ -8,7 +8,36 @@
   <form name="Personal" class="scForm" novalidate>
     <div class="scInputContainer">
       <div class="scFormHeader">Full Name</div>
-      <input type="text" letter-only ng-model="User.Name" placeholder="" id="Name" class="scFormInput" ng-required="true">
+      <input type="text" ng-model="User.Name" maxlength="50" placeholder="" id="Name" class="scFormInput" ng-required="true">
+    </div>
+    <div class="scInputContainer">
+      <div class="scFormHeader">Gender</div>
+
+      <div class="scGenderStyle scCenterElement">
+        <input type="radio" id="male" name="gender" value="male" ng-model="User.Gender">
+        <label for="male"  class="{{User.Gender == 'male' ? 'scSelectedRadio' : ''}}">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female" ng-model="User.Gender">
+        <label for="female"  class="{{User.Gender == 'female' ? 'scSelectedRadio' : ''}}" >Female</label><br>
+        <input type="radio" id="other" name="gender" value="other" ng-model="User.Gender">
+        <label for="other"  class="{{User.Gender == 'other' ? 'scSelectedRadio' : ''}}" >Other</label>
+      </div>
+
+    </div>
+    <div class="scInputContainer">
+      <div class="scFormHeader">Country</div>
+      <select class="form-control selectPicker glyphicon" ng-model="User.Country" ng-options="Contries as ( Contries.Name | renderSymbol) for Contries in availableContries" ng-required="true"></select>
+
+    </div>
+    <div class="scInputContainer">
+      <div class="scFormHeader">State</div>
+      <select class="form-control selectPicker glyphicon" ng-model="User.State" ng-options="State.Name for State in availableState  | filter:{ Country: User.Country.Name }" ng-required="true"></select>
+    </div>
+    <div class="scInputContainer">
+      <div class="scFormHeader">Phone</div>
+      <div class="scPhoneCode scCenterElement" ng-if="User.Country != null">
+        <img src="{{User.Country.symbol}}" class="scPhoneImg">{{User.Country.Code}}
+      </div>
+    <input type="text" numbers-only ng-model="User.Phone" maxlength="10" placeholder="" id="Phone" class="scFormInput {{User.Country != null ? 'scFormPhone' : ''}}" ng-required="true">
     </div>
 
     <button class="scButton scFullWidth" ng-click="NextPageIfValid(Personal)">Next</button>
@@ -16,6 +45,6 @@
 
 
   <div class="scPageFooter">
-    Already have an account ?<a href="#/Login" style="color: #ED5901;">Login</a>
+    Already have an account ? <a href="#/Login" style="color: #ED5901;">Login</a>
   </div>
 </div>

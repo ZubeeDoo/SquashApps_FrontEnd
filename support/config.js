@@ -1,5 +1,5 @@
 myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/otherwise');
+    $urlRouterProvider.otherwise('/Login');
     $stateProvider
         .state("Login", {
             url: "/Login",
@@ -36,9 +36,10 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
             url: "/Dashboard",
             templateUrl: "view/Dashboard.html",
             controller: "DashboardController",
-        })*/
+        })
         .state("otherwise", {
             url: "*path",
             templateUrl: "view/Error/NotFound.html"
-        });
+        })
+        */;
 }]);

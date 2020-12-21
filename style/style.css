@@ -163,7 +163,61 @@ input:focus{
     background-color: #8e8e8e !important;
 }
 
-form.ng-submitted input.ng-invalid {
+form.ng-submitted input.ng-invalid, form.ng-submitted select.ng-invalid,
+form.ng-submitted input[type="radio" i].ng-invalid {
     border: 1px solid #ea7070;
     box-shadow: 0px 0px 2px #ed5901;
   }
+  
+  .scGenderStyle{
+    font-size: 13px;
+    justify-content: start;
+  }
+
+  .scGenderStyle label{
+    margin-right: 11px;
+    border: 1px solid #d4d4d4;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .scSelectedRadio{
+    background-color: #ffeee4;
+    color: #ed5901;
+    font-weight: 700;
+    border: 1px solid #fbdcca !important;
+  }
+
+  input[type="radio" i] {
+    appearance: none !important;
+    border: none !important;
+}
+
+select{
+    width: 100%;
+    border: 1px solid #c7c7c7;
+    padding: 5px;
+}
+
+select:focus{
+    outline: none;
+}
+
+.scPhoneCode{
+    position: absolute;
+    background-color: #f3f3ff;
+    height: 25px;
+    padding: 0px 10px;
+    font-size: 13px;
+    border: 1px solid #cccccc;
+}
+
+.scPhoneImg{
+    width: 18px;
+    margin-right: 7px;
+}
+
+.scFormPhone{
+    width: calc(100% - 79px);
+    padding: 5px 5px 5px 72px;
+}
