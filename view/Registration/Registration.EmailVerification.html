@@ -1,0 +1,27 @@
+<div class="scContainer scCenterElement">
+  <div class="scPageHeader scCenterElement"> 
+    Enter your OTP
+    <div class="scPageHeaderSubText">
+        For your security, we need to verify your identity. We have sent a {{OTPDigits}}-digit
+        Code to {{User.Email}}.Please enter it below
+    </div>
+  </div>
+  <form name="Verification" class="scForm" novalidate>
+    <div class="scInputContainer">
+      <div class="scFormHeader">Enter your OTP</div>
+      <!-- <div class="scOTPDiv scCenterElement">
+        <input type="text" ng-repeat="digit in [].constructor(OTPDigits) track by $index" class="scOTPInputs"> 
+      </div> -->
+
+      <div otp-input-directive options="otpInput"></div>
+    </div>
+
+    <div class="scButtonDiv">
+      <button type="button" class="scButton scBackBtn" ng-click="Back(Verification)">Back</button>
+      <button class="scButton scBtnNext" ng-click="NextPageIfValid(Verification)">Verify</button>
+    </div>
+    <div class="scPageNote">
+      Didn't receive an email check your spam for the email from support@squareApp.com
+    </div>
+  </form>
+</div>

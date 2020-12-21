@@ -1,0 +1,8 @@
+  <div class="scHeader">
+    <div ng-repeat="title in Header" class="scCenterElement scTitleName {{title.IsActivated ? 'scTitleActive' : ''}}">
+      <span class="scTabIndex scCenterElement">{{ title.IsCompleted ? '&#10004' : $index + 1 }}</span>
+      <span class="scTabText">{{title.Name}}</span> 
+    </div>
+  </div>
+
+  <ui-view></ui-view>

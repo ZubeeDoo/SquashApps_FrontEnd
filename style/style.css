@@ -1,0 +1,169 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: montserrat, arial, verdana;
+    margin: 0px;
+}
+
+a{
+    outline: none;
+    border: 0px;
+    color: #ed5901;
+    text-decoration: none;
+}
+
+.scHeader{
+	background-color: #2e4b64;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    font-size: 12px;
+    color: white;
+}
+
+.scCenterElement{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scTabIndex{
+    border-radius: 50%;
+    background-color: rgb(40,67,90);
+    width: 15px;
+    height: 15px;
+    margin-right: 15px;
+    color: #8e8e8e;
+    font-weight: bold;
+    padding: 1px;
+    font-size: 10px;
+}
+
+.scTitleActive .scTabIndex{
+    background-color: #ED5901;
+    color: white;
+}
+
+.scTitleActive .scTabText{
+    font-weight: bold !important;
+}
+
+.scPageHeader{
+    height: 60px;
+    font-size: x-large;
+    padding: 15px;
+    width: 100%;
+    max-width: 290px;
+    flex-direction: column;
+}
+
+.scContainer{
+    flex-direction: column;
+    height: calc(100% - 48px);
+    background-color: #f9f9f9;
+    justify-content: unset;
+}
+
+.scForm{
+    padding: 10px 30px;
+    background-color: white;
+    width: 100%;
+    max-width: 50%;
+}
+
+.scBackBtn{
+    width: 30%;
+    background-color: #d8d8d8 !important;
+    color: black !important;
+}
+
+.scBtnNext{
+    width: calc(70% - 5px);
+}
+
+.scButton{
+    color: white;
+    background-color: #ED5901;
+    border: 1px black;
+    border-radius: 2px;
+    height: 32px;
+    outline: none;
+}
+
+.scFullWidth{
+    width: 100%;
+}
+
+.scInputContainer{
+    margin: 15px 0px;
+}
+
+.scFormHeader{
+    color: dimgrey;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.scFormInput{
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 2px #efefef;
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+
+input:focus{
+    box-shadow: 0 0 2px #c7c7c7 !important;
+    outline: #c7c7c7 !important;
+}
+
+.scOTPInputs{
+    padding: 10px;
+    width: 15px;
+    margin: 5px;
+}
+.otpBox{
+    width:250px;
+    margin:0 auto;
+    margin-top: 150px;
+    padding: 20px;
+    background: #f5f5f5;
+    border: 1px solid #d4d4d4;
+    height: 150px;
+}
+
+.scPageHeaderSubText{
+    font-size: 11px;
+    color: #949494;
+    margin: 5px;
+    text-align: center;
+}
+
+.scPageFooter{
+    margin: 15px;
+}
+
+.scPageNote{
+    font-size: 11px;
+    color: #949494;
+    margin: 10px 0px;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 15px;
+}
+
+.scTC{
+    font-size: 25px;
+    color: #505050;
+    margin: 30px;
+}
+
+.scDisableBtn{
+    background-color: #8e8e8e !important;
+}
+
+form.ng-submitted input.ng-invalid {
+    border: 1px solid #ea7070;
+    box-shadow: 0px 0px 2px #ed5901;
+  }

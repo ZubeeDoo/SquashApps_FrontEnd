@@ -1,0 +1,21 @@
+<div class="scContainer scCenterElement">
+  <div class="scPageHeader"> 
+    Add your personal details
+    <div class="scPageHeaderSubText">
+        Blah blah blah blah ...I am workingggg
+    </div>
+  </div>
+  <form name="Personal" class="scForm" novalidate>
+    <div class="scInputContainer">
+      <div class="scFormHeader">Full Name</div>
+      <input type="text" letter-only ng-model="User.Name" placeholder="" id="Name" class="scFormInput" ng-required="true">
+    </div>
+
+    <button class="scButton scFullWidth" ng-click="NextPageIfValid(Personal)">Next</button>
+  </form>
+
+
+  <div class="scPageFooter">
+    Already have an account ?<a href="#/Login" style="color: #ED5901;">Login</a>
+  </div>
+</div>
