@@ -4,15 +4,15 @@
     </div>
     <div class="scForm">
       <div class="scInputContainer">
-        <div class="scFormHeader">User name</div>
-        <input type="text" placeholder="" id="Name" class="scFormInput">
+        <div class="scFormHeader">Email ID</div>
+        <input type="text" placeholder="" id="Mail" ng-model="LoginUser.EmailId" class="scFormInput">
       </div> 
       <div class="scInputContainer">
-        <div class="scFormHeader">Password</div>
-        <input type="text" placeholder="" id="Name" class="scFormInput">
+        <div class="scFormHeader">Year of experience</div>
+        <input type="text" placeholder="" id="YofEx" ng-model="LoginUser.YofEx" class="scFormInput">
       </div>
-  
-      <button class="scButton scFullWidth" ng-click="">Login</button>
+   
+      <button class="scButton scFullWidth" ng-click="CheckandLogin()">Login</button>
     </div>
     <div class="scPageFooter">
       Don't have a account ? <a href="#/Registration" style="color: #ED5901;">Register Here</a>

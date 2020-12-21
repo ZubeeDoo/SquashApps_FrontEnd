@@ -10,6 +10,21 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
             {Name: "Email verification", IsActivated : false, IsCompleted : false, UrlState :"Registration.EmailVerification"},
         ];
 
+        $scope.availableContries = [
+            {Name: "India", symbol: "images/CountryIcons/india.png", Code: "+91"},
+            {Name: "Japan", symbol: "images/CountryIcons/japan.png", Code: "+81"},
+            {Name: "UK", symbol: "images/CountryIcons/uk.png", Code: "+44"},
+          ];
+    
+          $scope.availableState = [
+            {Country: "India", Name: "TamilNadu"},
+            {Country: "India", Name: "Kerala"},
+            {Country: "Japan", Name: "Tokyo"},
+            {Country: "Japan", Name: "Alkiaba"},
+            {Country: "UK", Name: "England"},
+            {Country: "UK", Name: "IceLand"},
+          ];
+
         $scope.User = {};
 
         $scope.CurrentState = 0;
@@ -19,11 +34,10 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
         $scope.otpInput={
             size:$scope.OTPDigits,
             type:"text",
+            value: 0,
             onDone: function(value){
-                console.log(value);
             },
             onChange: function(value){
-                console.log(value);
             }
         }
         
@@ -48,7 +62,7 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
 
     $scope.Navigate = function(IsForward, IsCompleted = true)
     {
-        if($scope.Header.length == $scope.CurrentState + 1)
+        if($scope.Header.length == $scope.CurrentState + (IsForward ? 1 : 0))
         {
             $scope.AddToDB();
 
@@ -85,7 +99,7 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
     $scope.AddToDB = function() {
       DBService.add($scope.User)
         .then(function(objResponse) {
-            $location.path("/Thankyou");
+            // $location.path("/Thankyou");
             console.log(objResponse);
         })
         .then(function() {

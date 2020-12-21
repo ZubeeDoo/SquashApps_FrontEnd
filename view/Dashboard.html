@@ -1,0 +1,17 @@
+<div class="scContainer scCenterElement">
+    <table class="scUserData">
+        <tr>
+            <td>Name</td>
+            <td>EmailId</td>
+            <td>JobTitle</td>
+            <td>Phone</td>
+        </tr>
+        <tr ng-repeat="Data in AllData">
+            <td>{{ Data.doc.Name }}</td>
+            <td>{{ Data.doc.EmailId }}</td>
+            <td>{{ Data.doc.JobTitle }}</td>
+            <td>{{ Data.doc.Phone }}</td>
+        </tr>
+      </table>
+  </div>
+  

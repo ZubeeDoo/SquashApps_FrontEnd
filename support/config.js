@@ -32,11 +32,12 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
             url: "/Thankyou",
             templateUrl: "view/Thankyou.html",
         })
-  /*      .state("Dashboard", {
+        .state("Dashboard", {
             url: "/Dashboard",
             templateUrl: "view/Dashboard.html",
             controller: "DashboardController",
         })
+          /* 
         .state("otherwise", {
             url: "*path",
             templateUrl: "view/Error/NotFound.html"

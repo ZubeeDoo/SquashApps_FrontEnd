@@ -8,18 +8,18 @@
   <form name="CompanyDetails" class="scForm" novalidate>
     <div class="scInputContainer">
       <div class="scFormHeader">Company name</div>
-      <input type="text" focus letter-only ng-model="User.CompanyName" placeholder="" id="CompanyName" name="CompanyName" class="scFormInput" required>
+      <input type="text" focus letter-only maxlength="50" ng-model="User.CompanyName" placeholder="" id="CompanyName" name="CompanyName" class="scFormInput" required>
     </div>
     <div class="scInputContainer">
       <div class="scFormHeader">Email Id</div>
-      <input type="email" focus ng-model="User.EmailId" placeholder="" id="EmailId" name="EmailId" class="scFormInput" required>
+      <input type="email" focus ng-model="User.EmailId" maxlength="100" placeholder="" id="EmailId" name="EmailId" class="scFormInput" required>
     </div>
     <div class="scInputContainer">
       <div class="scFormHeader">Job title</div>
-      <input type="text" focus letter-only ng-model="User.JobTitle" placeholder="" id="JobTitle" name="JobTitle" class="scFormInput" required>
+      <input type="text" focus letter-only ng-model="User.JobTitle" maxlength="80" placeholder="" id="JobTitle" name="JobTitle" class="scFormInput" required>
     </div>
     <div class="scInputContainer">
-      <div class="scFormHeader">Year of exprence</div>
+      <div class="scFormHeader">Year of experience</div>
       <input type="text" focus numbers-only ng-model="User.YearsOfEx" maxlength="2" placeholder="" id="YearsOfEx" name="YearsOfEx" class="scFormInput" required>
     </div>
 

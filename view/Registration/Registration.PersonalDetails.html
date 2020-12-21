@@ -37,7 +37,7 @@
       <div class="scPhoneCode scCenterElement" ng-if="User.Country != null">
         <img src="{{User.Country.symbol}}" class="scPhoneImg">{{User.Country.Code}}
       </div>
-    <input type="text" numbers-only ng-model="User.Phone" maxlength="10" placeholder="" id="Phone" class="scFormInput {{User.Country != null ? 'scFormPhone' : ''}}" ng-required="true">
+    <input type="text" numbers-only ng-model="User.Phone" minlength="9" maxlength="10" placeholder="" id="Phone" class="scFormInput {{User.Country != null ? 'scFormPhone' : ''}}" ng-required="true">
     </div>
 
     <button class="scButton scFullWidth" ng-click="NextPageIfValid(Personal)">Next</button>

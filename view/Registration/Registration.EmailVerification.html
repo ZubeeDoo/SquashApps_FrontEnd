@@ -13,12 +13,12 @@
         <input type="text" ng-repeat="digit in [].constructor(OTPDigits) track by $index" class="scOTPInputs"> 
       </div> -->
 
-      <div otp-input-directive options="otpInput"></div>
+      <div otp-directive options="otpInput"></div>
     </div>
 
     <div class="scButtonDiv">
       <button type="button" class="scButton scBackBtn" ng-click="Back(Verification)">Back</button>
-      <button class="scButton scBtnNext" ng-click="NextPageIfValid(Verification)">Verify</button>
+      <button class="scButton scBtnNext {{(otpInput.value == 0 || otpInput.value.length < OTPDigits) ? 'scDisableBtn' : ''}}" ng-disabled="otpInput.value.length < OTPDigits" ng-click="NextPageIfValid(Verification)">Verify</button>
     </div>
     <div class="scPageNote">
       Didn't receive an email check your spam for the email from support@squareApp.com
