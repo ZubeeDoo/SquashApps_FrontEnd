@@ -25,19 +25,23 @@
     </div>
     <div class="scInputContainer">
       <div class="scFormHeader">Country</div>
-      <select class="form-control selectPicker glyphicon" ng-model="User.Country" ng-options="Contries as ( Contries.Name | renderSymbol) for Contries in availableContries" ng-required="true"></select>
-
+      <!-- <select class="form-control selectPicker glyphicon" ng-model="User.Country" ng-options="Contries as ( Contries.Name | renderSymbol) for Contries in availableContries" ng-required="true"></select> -->
+      <input type="text" list="countrylist" class="form-control selectPicker glyphicon scSelectPicker" ng-model="User.Country" ng-controller="ngCountriesCtrl" ng-blur="getCountryObj(User.Country, onCountrySelection)" ng-required="true">
+      <ngcountries></ngcountries>
     </div>
-    <div class="scInputContainer">
+    <div class="scInputContainer" ng-hide="true">
       <div class="scFormHeader">State</div>
-      <select class="form-control selectPicker glyphicon" ng-model="User.State" ng-options="State.Name for State in availableState  | filter:{ Country: User.Country.Name }" ng-required="true"></select>
+      <select class="" ng-model="User.State" ng-options="State.Name for State in availableState  | filter:{ Country: User.Country.Name }" ></select>
     </div>
     <div class="scInputContainer">
       <div class="scFormHeader">Phone</div>
-      <div class="scPhoneCode scCenterElement" ng-if="User.Country != null">
-        <img src="{{User.Country.symbol}}" class="scPhoneImg">{{User.Country.Code}}
+      <div style="display: flex;">
+        <div class="scPhoneCode scCenterElement" ng-if="User.CountryCode != null">
+          <!-- <img src="{{User.CountrySymbol}}" class="scPhoneImg"> -->
+          {{User.CountryCode}}
+        </div>
+      <input type="text" numbers-only ng-model="User.Phone" minlength="9" maxlength="10" placeholder="" id="Phone" class="scFormInput scFormPhone" ng-required="true">
       </div>
-    <input type="text" numbers-only ng-model="User.Phone" minlength="9" maxlength="10" placeholder="" id="Phone" class="scFormInput {{User.Country != null ? 'scFormPhone' : ''}}" ng-required="true">
     </div>
 
     <button class="scButton scFullWidth" ng-click="NextPageIfValid(Personal)">Next</button>

@@ -2,18 +2,18 @@
     <div class="scPageHeader"> 
       Welcome to Squash app
     </div>
-    <div class="scForm">
+      <form name="LoginForm" class="scForm" novalidate>
       <div class="scInputContainer">
         <div class="scFormHeader">Email ID</div>
-        <input type="text" placeholder="" id="Mail" ng-model="LoginUser.EmailId" class="scFormInput">
+        <input type="email" placeholder="" id="Mail" ng-model="LoginUser.EmailId" class="scFormInput" required>
       </div> 
       <div class="scInputContainer">
         <div class="scFormHeader">Year of experience</div>
-        <input type="text" placeholder="" id="YofEx" ng-model="LoginUser.YofEx" class="scFormInput">
+        <input type="text" numbers-only maxlength="2" placeholder="" id="YofEx" ng-model="LoginUser.YofEx" class="scFormInput" required>
       </div>
    
-      <button class="scButton scFullWidth" ng-click="CheckandLogin()">Login</button>
-    </div>
+      <button class="scButton scFullWidth" ng-click="CheckandLogin(LoginForm)">Login</button>
+    </form>
     <div class="scPageFooter">
       Don't have a account ? <a href="#/Registration" style="color: #ED5901;">Register Here</a>
     </div>

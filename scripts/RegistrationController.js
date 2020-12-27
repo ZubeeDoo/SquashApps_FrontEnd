@@ -1,20 +1,10 @@
 
   
-myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBService', '$state', '$location', function($scope, $rootScope, $q, DBService, $state, $location) 
+myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBService', '$state', '$location', 'toaster', function($scope, $rootScope, $q, DBService, $state, $location, toaster) 
 {
     $scope.initCtrl = function()
     {
-        $scope.Header = [
-            {Name: "Personal details", IsActivated : true, IsCompleted : false, UrlState: "Registration.PersonalDetails"},
-            {Name: "Company details", IsActivated : false, IsCompleted : false, UrlState : "Registration.CompanyDetails"},
-            {Name: "Email verification", IsActivated : false, IsCompleted : false, UrlState :"Registration.EmailVerification"},
-        ];
-
-        $scope.availableContries = [
-            {Name: "India", symbol: "images/CountryIcons/india.png", Code: "+91"},
-            {Name: "Japan", symbol: "images/CountryIcons/japan.png", Code: "+81"},
-            {Name: "UK", symbol: "images/CountryIcons/uk.png", Code: "+44"},
-          ];
+       
     
           $scope.availableState = [
             {Country: "India", Name: "TamilNadu"},
@@ -24,12 +14,12 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
             {Country: "UK", Name: "England"},
             {Country: "UK", Name: "IceLand"},
           ];
-
-        $scope.User = {};
-
-        $scope.CurrentState = 0;
         $scope.OTPDigits = 5;
-        $state.go('Registration.PersonalDetails', {});
+
+        if($rootScope.User.hasOwnProperty("Name") == false)
+        {
+            $state.go('Registration.PersonalDetails', {});
+        }
 
         $scope.otpInput={
             size:$scope.OTPDigits,
@@ -50,6 +40,10 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
         {
             $scope.Navigate(true);
         }
+        else
+        {
+            toaster.pop('warning', "Missing or incorrect value", "Please fill up the required fields");
+        }
     };
 
     $scope.Back = function(objForm)
@@ -62,26 +56,26 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
 
     $scope.Navigate = function(IsForward, IsCompleted = true)
     {
-        if($scope.Header.length == $scope.CurrentState + (IsForward ? 1 : 0))
+        if($rootScope.Header.length == $rootScope.CurrentState + (IsForward ? 1 : 0))
         {
             $scope.AddToDB();
 
             return null;
         }
 
-        if($scope.Header.length > $scope.CurrentState)
+        if($rootScope.Header.length > $rootScope.CurrentState)
         {
-            var objCurrentPage = $scope.Header[$scope.CurrentState];
+            var objCurrentPage = $rootScope.Header[$rootScope.CurrentState];
             objCurrentPage.IsActivated = false;
             objCurrentPage.IsCompleted = IsCompleted;
 
             if(IsForward)
-                $scope.CurrentState = $scope.CurrentState + 1;
+                $rootScope.CurrentState = $rootScope.CurrentState + 1;
             else
-                $scope.CurrentState = $scope.CurrentState - 1;
+                $rootScope.CurrentState = $rootScope.CurrentState - 1;
 
 
-            var objPage = $scope.Header[$scope.CurrentState];
+            var objPage = $rootScope.Header[$rootScope.CurrentState];
             objPage.IsActivated = true;
             objPage.IsCompleted = false;
 
@@ -99,11 +93,42 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
     $scope.AddToDB = function() {
       DBService.add($scope.User)
         .then(function(objResponse) {
-            // $location.path("/Thankyou");
+            $location.path("/Dashboard");
+            toaster.pop('success', "success", "text");
+
             console.log(objResponse);
+            $rootScope.User = {};
         })
         .then(function() {
         })
+    };
+
+    $scope.uploadedFile = function(element, sFolderName) {
+        var getFile = element.files[0];
+        uploadedFile = {
+            file: getFile,
+            size: getFile.size,
+            type: getFile.type,
+            name: getFile.name
+        };
+
+        $rootScope.User.CompanyLogo = uploadedFile;
+        
+        let reader = new FileReader();
+        
+        reader.readAsDataURL(element.files[0]);
+
+        reader.onload = function(e) {
+            $rootScope.CompanyLogo = e.target.result;
+
+            $scope.$apply();
+        };
+    }
+
+    $scope.onCountrySelection = function (ObjSelectedCountry) {
+        
+        if(ObjSelectedCountry != null)
+            $scope.User.CountryCode = ObjSelectedCountry.dial_code;
     };
 
     $scope.initCtrl();

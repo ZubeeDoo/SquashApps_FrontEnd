@@ -3,14 +3,16 @@
 
   <head>
  
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/style.css"/>
+    <link rel="stylesheet" href="style/toaster.css"/>
 
     <!-- <script src="http://code.angularjs.org/1.1.5/angular.min.js"></script> -->
     <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js'></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
-    <!-- <script src="vendors/pouchdb.js"></script> -->
     <script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+    <script src="node_modules/angular-countries/dist/js/ngCountries.js"></script>
+    <script src="vendors/toaster.js"></script>
     <script src="app.js"></script>
     
     <!-- Supports -->
@@ -28,6 +30,7 @@
 
   <body ng-controller="MainController">
 
+    <toaster-container toaster-options="{{ToasterOptions}}"></toaster-container>
     <ui-view></ui-view>
     
   </body>

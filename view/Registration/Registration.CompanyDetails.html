@@ -6,6 +6,16 @@
     </div>
   </div>
   <form name="CompanyDetails" class="scForm" novalidate>
+    <div class="scInputContainer scCenterElement" style="justify-content: start;">
+      <div class="scCompanyLogo scCenterElement">
+        <img src="{{CompanyLogo != null ? CompanyLogo : 'images/image.png' }}" class="scUploadedImgSize">
+      </div>
+      <label class="scCustomFileUpload">
+        <input type="file" ng-model="CompanyLogo" name="CompanyLogo" accept="image/*"
+        onchange="angular.element(this).scope().uploadedFile(this, 'CompanyLogo')" required>
+        Upload your company logo
+    </label>
+    </div>
     <div class="scInputContainer">
       <div class="scFormHeader">Company name</div>
       <input type="text" focus letter-only maxlength="50" ng-model="User.CompanyName" placeholder="" id="CompanyName" name="CompanyName" class="scFormInput" required>

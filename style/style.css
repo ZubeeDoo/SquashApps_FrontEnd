@@ -72,6 +72,7 @@ a{
     background-color: white;
     width: 100%;
     max-width: 350px;
+    font-size: 13px;
 }
 
 .scBackBtn{
@@ -189,10 +190,14 @@ form.ng-submitted input[type="radio" i].ng-invalid {
     border: none !important;
 }
 
-select{
+select, .scSelectPicker{
     width: 100%;
     border: 1px solid #c7c7c7;
     padding: 5px;
+}
+
+.scSelectPicker{
+    width: calc(100% - 12px);
 }
 
 select:focus{
@@ -200,7 +205,6 @@ select:focus{
 }
 
 .scPhoneCode{
-    position: absolute;
     background-color: #f3f3ff;
     height: 25px;
     padding: 0px 10px;
@@ -214,14 +218,14 @@ select:focus{
 }
 
 .scFormPhone{
-    width: calc(100% - 79px);
-    padding: 5px 5px 5px 72px;
+    width: 100%;
+    padding: 5px;
 }
 
 .scUserData {
-    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: calc(100% - 30px);
+    margin: 15px;
   }
   
   .scUserData td, .scUserData th {
@@ -240,3 +244,33 @@ select:focus{
     background-color: #4CAF50;
     color: white;
   }
+
+
+  .scCompanyLogo{
+    background-color: #f9f9f9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  input[type="file"] {
+    display: none;
+}
+
+.scCustomFileUpload {
+    border: none;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #ed5901;
+}
+
+.scUploadedImgSize{
+    width: 80%;
+}
+
+.scDashInfo{
+    margin: 50px;
+    color: #8c8c8c;
+}
