@@ -94,7 +94,7 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
       DBService.add($scope.User)
         .then(function(objResponse) {
             $location.path("/Dashboard");
-            toaster.pop('success', "success", "text");
+            toaster.pop('success', "success", "User has been created successfully.");
 
             console.log(objResponse);
             $rootScope.User = {};
