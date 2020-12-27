@@ -95,9 +95,7 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
         .then(function(objResponse) {
             $location.path("/Dashboard");
             toaster.pop('success', "success", "User has been created successfully.");
-
-            console.log(objResponse);
-            $rootScope.User = {};
+            $scope.resetHeader();
         })
         .then(function() {
         })
@@ -129,6 +127,19 @@ myApp.controller('RegistrationController', ['$scope', '$rootScope', '$q', 'DBSer
         
         if(ObjSelectedCountry != null)
             $scope.User.CountryCode = ObjSelectedCountry.dial_code;
+    };
+
+    $scope.resetHeader = function()
+    {
+        for(var sKey in $rootScope.Header)
+        {
+            $rootScope.Header[sKey].IsCompleted = false;
+            $rootScope.Header[sKey].IsActivated = false;
+        }
+        
+        $rootScope.Header[0].IsActivated = true;
+        $rootScope.User = {};
+        $rootScope.CurrentState = 0;
     };
 
     $scope.initCtrl();
